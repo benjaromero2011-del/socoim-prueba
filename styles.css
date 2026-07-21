@@ -108,9 +108,9 @@ ul { list-style: none; }
 .section-tag {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--brand);
   margin-bottom: 1rem;
@@ -518,6 +518,7 @@ ul { list-style: none; }
   margin-bottom: 1.25rem;
   font-size: 1.05rem;
   line-height: 1.75;
+  text-align: justify;
 }
 .about-text strong { color: var(--text); font-weight: 600; }
 .about-text .btn { margin-top: 1rem; }
@@ -567,6 +568,7 @@ ul { list-style: none; }
   font-size: 0.9rem;
   color: var(--text-2);
   line-height: 1.6;
+  text-align: justify;
 }
 
 /* ══════════════════════════════════════════════════
