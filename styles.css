@@ -1041,9 +1041,9 @@ body.products-view-open { overflow: hidden; }
 }
 .clients-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
-  max-width: 960px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 .client-logo {
@@ -1422,6 +1422,9 @@ a.contact-value:hover { color: var(--accent); }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+  }
+  .clients-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
