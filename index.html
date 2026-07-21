@@ -16,7 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?v=20260516" defer></script>
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="styles.css?v=20260516" />
+  <link rel="stylesheet" href="styles.css?v=20260722b" />
 </head>
 <body>
 
@@ -34,11 +34,7 @@
   <header id="navbar">
     <nav class="nav-container">
       <a href="#inicio" class="nav-logo">
-        <img src="assets/img/logo-icon.png" alt="" class="nav-logo-icon" width="40" height="50" />
-        <span class="nav-logo-text">
-          <span class="nav-logo-main">SOCOIM</span>
-          <span class="nav-logo-sub">Suministros Industriales</span>
-        </span>
+        <img src="assets/img/logo-full.png" alt="SOCOIM — Proveedor Industrial" class="nav-logo-img" />
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#nosotros">Nosotros</a></li>
@@ -211,6 +207,16 @@
           directa para requerimientos especiales.
         </p>
       </div>
+
+      <!-- Buscador de productos -->
+      <div class="product-search reveal">
+        <svg class="product-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="productSearch" placeholder="Buscar producto, marca o modelo..." aria-label="Buscar producto" />
+        <button type="button" class="product-search-clear" id="productSearchClear" aria-label="Limpiar búsqueda" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <p class="product-search-empty" id="productSearchEmpty" hidden>No encontramos productos que coincidan con su búsqueda. Intente con otro término o <a href="mailto:ventas@socoim.cl?subject=Consulta%20de%20Productos">consúltenos directamente</a>.</p>
 
       <!-- Filtros de categoría -->
       <div class="product-filters reveal">
@@ -853,24 +859,12 @@
 
         <article class="product-card reveal" data-category="flanges">
           <div class="product-img-wrap">
-            <img src="assets/photos/prod/p57.jpg" alt="Tapones Hembra" loading="lazy" />
-          </div>
-          <div class="product-info">
-            <span class="product-cat">Flanges y Fittings</span>
-            <h3>Tapones Hembra</h3>
-            <p>No ingresado el producto</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Tapones%20Hembra" class="product-cta">Cotizar →</a>
-          </div>
-        </article>
-
-        <article class="product-card reveal" data-category="flanges">
-          <div class="product-img-wrap">
             <img src="assets/photos/prod/p58.jpg" alt="Coplas Reductoras" loading="lazy" />
           </div>
           <div class="product-info">
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Coplas Reductoras</h3>
-            <p>No ingresado el producto</p>
+            <p>Coplas reductoras galvanizadas para uniones de tuberías de distinto diámetro.</p>
             <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Coplas%20Reductoras" class="product-cta">Cotizar →</a>
           </div>
         </article>
@@ -1491,6 +1485,6 @@
   </div>
 
   <!-- Scripts -->
-  <script src="main.js?v=20260516" defer></script>
+  <script src="main.js?v=20260722" defer></script>
 </body>
 </html>

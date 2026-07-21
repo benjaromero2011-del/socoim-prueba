@@ -324,29 +324,70 @@
   // PRODUCT FILTER
   // ══════════════════════════════════════════════════
   function initFilter() {
-    var buttons = document.querySelectorAll('.filter-btn');
-    var cards   = document.querySelectorAll('.product-card');
+    var buttons  = document.querySelectorAll('.filter-btn');
+    var cards    = document.querySelectorAll('.product-card');
+    var search   = document.getElementById('productSearch');
+    var clearBtn = document.getElementById('productSearchClear');
+    var emptyMsg = document.getElementById('productSearchEmpty');
     if (!buttons.length) return;
+
+    var activeCategory = 'all';
+
+    function normalize(str) {
+      return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function apply() {
+      var query = normalize(search ? search.value.trim() : '');
+      var visibleCount = 0;
+
+      cards.forEach(function (card) {
+        var matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
+        var matchesSearch = true;
+        if (query) {
+          var haystack = normalize(
+            (card.querySelector('h3') ? card.querySelector('h3').textContent : '') + ' ' +
+            (card.querySelector('.product-info p') ? card.querySelector('.product-info p').textContent : '') + ' ' +
+            (card.querySelector('.product-cat') ? card.querySelector('.product-cat').textContent : '')
+          );
+          matchesSearch = haystack.indexOf(query) !== -1;
+        }
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('hidden');
+          visibleCount++;
+          // Re-trigger reveal animation si no era visible
+          if (!card.classList.contains('visible')) {
+            card.classList.add('visible');
+          }
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (clearBtn) clearBtn.hidden = !query;
+      if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
+    }
 
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
         buttons.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-
-        var filter = btn.dataset.filter;
-        cards.forEach(function (card) {
-          if (filter === 'all' || card.dataset.category === filter) {
-            card.classList.remove('hidden');
-            // Re-trigger reveal animation si no era visible
-            if (!card.classList.contains('visible')) {
-              card.classList.add('visible');
-            }
-          } else {
-            card.classList.add('hidden');
-          }
-        });
+        activeCategory = btn.dataset.filter;
+        apply();
       });
     });
+
+    if (search) {
+      search.addEventListener('input', apply);
+    }
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        search.value = '';
+        search.focus();
+        apply();
+      });
+    }
   }
 
   // ══════════════════════════════════════════════════
