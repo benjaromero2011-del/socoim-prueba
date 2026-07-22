@@ -324,14 +324,16 @@
   // PRODUCT FILTER
   // ══════════════════════════════════════════════════
   function initFilter() {
-    var buttons  = document.querySelectorAll('.filter-btn');
+    var categoryButtons = document.querySelectorAll('[data-filter]');
+    var brandButtons    = document.querySelectorAll('[data-brand-filter]');
     var cards    = document.querySelectorAll('.product-card');
     var search   = document.getElementById('productSearch');
     var clearBtn = document.getElementById('productSearchClear');
     var emptyMsg = document.getElementById('productSearchEmpty');
-    if (!buttons.length) return;
+    if (!categoryButtons.length && !brandButtons.length) return;
 
     var activeCategory = 'all';
+    var activeBrand = 'all';
 
     function normalize(str) {
       return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -343,6 +345,7 @@
 
       cards.forEach(function (card) {
         var matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
+        var matchesBrand = activeBrand === 'all' || card.dataset.brand === activeBrand;
         var matchesSearch = true;
         if (query) {
           var haystack = normalize(
@@ -353,7 +356,7 @@
           matchesSearch = haystack.indexOf(query) !== -1;
         }
 
-        if (matchesCategory && matchesSearch) {
+        if (matchesCategory && matchesBrand && matchesSearch) {
           card.classList.remove('hidden');
           visibleCount++;
           // Re-trigger reveal animation si no era visible
@@ -369,11 +372,20 @@
       if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
     }
 
-    buttons.forEach(function (btn) {
+    categoryButtons.forEach(function (btn) {
       btn.addEventListener('click', function () {
-        buttons.forEach(function (b) { b.classList.remove('active'); });
+        categoryButtons.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
         activeCategory = btn.dataset.filter;
+        apply();
+      });
+    });
+
+    brandButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        brandButtons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeBrand = btn.dataset.brandFilter;
         apply();
       });
     });
