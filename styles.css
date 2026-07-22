@@ -1409,6 +1409,52 @@ a.contact-value:hover { color: var(--accent); }
 }
 
 /* ══════════════════════════════════════════════════
+   WHATSAPP — Botón flotante
+══════════════════════════════════════════════════ */
+.whatsapp-float {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 950;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: whatsappPulse 2.6s ease-in-out infinite;
+}
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.55), 0 3px 10px rgba(0, 0, 0, 0.18);
+  animation-play-state: paused;
+}
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+}
+@keyframes whatsappPulse {
+  0%, 100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 10px rgba(37, 211, 102, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float { animation: none; }
+}
+@media (max-width: 640px) {
+  .whatsapp-float {
+    right: 1rem;
+    bottom: 1rem;
+    width: 52px;
+    height: 52px;
+  }
+  .whatsapp-float svg { width: 27px; height: 27px; }
+}
+
+/* ══════════════════════════════════════════════════
    RESPONSIVE — Tablet
 ══════════════════════════════════════════════════ */
 @media (max-width: 1100px) {
