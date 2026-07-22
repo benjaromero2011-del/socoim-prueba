@@ -1082,6 +1082,47 @@ body.products-view-open { overflow: hidden; }
 }
 
 /* ══════════════════════════════════════════════════
+   ALIANZAS ESTRATÉGICAS
+══════════════════════════════════════════════════ */
+.alliances {
+  background: var(--bg-2);
+}
+.alliances-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.alliance-logo {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--r) * 2);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.25rem 2.5rem;
+  min-height: 150px;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.alliance-logo:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.alliance-logo img {
+  max-height: 88px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+@media (max-width: 640px) {
+  .alliances-grid { grid-template-columns: 1fr; gap: 1rem; max-width: 320px; }
+  .alliance-logo { padding: 1.75rem; min-height: 120px; }
+}
+
+/* ══════════════════════════════════════════════════
    WHY — Diferenciadores
 ══════════════════════════════════════════════════ */
 .why {
