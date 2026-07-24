@@ -26,6 +26,60 @@
     close: function () {}
   };
 
+  // ══════════════════════════════════════════════════
+  // CART — carro de cotización, persistente en localStorage
+  // Compartido entre las tarjetas de producto, el modal
+  // y el formulario de contacto (sección #contacto).
+  // ══════════════════════════════════════════════════
+  var Cart = (function () {
+    var STORAGE_KEY = 'socoim_quote_cart';
+    var listeners = [];
+
+    function read() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) { return []; }
+    }
+
+    function write(items) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch (e) {}
+      listeners.forEach(function (fn) { fn(items); });
+    }
+
+    return {
+      getAll: read,
+      add: function (name, category, qty) {
+        qty = Math.max(1, parseInt(qty, 10) || 1);
+        var items = read();
+        var existing = items.filter(function (i) { return i.name === name; })[0];
+        var wasNew = !existing;
+        if (existing) {
+          existing.qty = qty;
+        } else {
+          items.push({ name: name, category: category || '', qty: qty });
+        }
+        write(items);
+        return wasNew;
+      },
+      setQty: function (name, qty) {
+        qty = Math.max(1, parseInt(qty, 10) || 1);
+        var items = read();
+        items.forEach(function (i) { if (i.name === name) i.qty = qty; });
+        write(items);
+      },
+      remove: function (name) {
+        write(read().filter(function (i) { return i.name !== name; }));
+      },
+      clear: function () {
+        write([]);
+      },
+      onChange: function (fn) {
+        listeners.push(fn);
+      }
+    };
+  })();
+
   onReady(function () {
     safe(initSplash,    'splash');
     safe(initNavbar,    'navbar');
@@ -35,7 +89,9 @@
     safe(initFilter,    'filter');
     safe(initProductModal, 'productModal');
     safe(initProductsView, 'productsView');
+    safe(initQuoteCart, 'quoteCart');
     safe(initForm,      'form');
+    safe(initQuoteButtons, 'quoteButtons');
     safe(initAnchors,   'anchors');
     safe(initSafetyNet, 'safetyNet');
   });
@@ -467,7 +523,6 @@
     var cat   = document.getElementById('productModalCat');
     var title = document.getElementById('productModalTitle');
     var desc  = document.getElementById('productModalDesc');
-    var cta   = document.getElementById('productModalCta');
     var closeBtn = modal.querySelector('.product-modal-close');
     var lastFocused = null;
 
@@ -477,7 +532,6 @@
       var cardCat   = card.querySelector('.product-cat');
       var cardTitle = card.querySelector('h3');
       var cardDesc  = card.querySelector('.product-info p');
-      var cardCta   = card.querySelector('.product-cta');
 
       if (cardImg) {
         img.src = cardImg.src;
@@ -493,7 +547,7 @@
       cat.textContent   = cardCat ? cardCat.textContent : '';
       title.textContent = cardTitle ? cardTitle.textContent : '';
       desc.textContent  = cardDesc ? cardDesc.textContent : '';
-      if (cardCta) cta.setAttribute('href', cardCta.getAttribute('href'));
+      modal.dataset.category = card.dataset.category || '';
 
       lastFocused = document.activeElement;
       modal.classList.add('open');
@@ -514,7 +568,7 @@
       card.setAttribute('role', 'button');
 
       card.addEventListener('click', function (e) {
-        if (e.target.closest('.product-cta')) return; // deja pasar el mailto normal
+        if (e.target.closest('.product-cta')) return; // deja pasar el clic del botón Cotizar
         open(card);
       });
 
@@ -537,7 +591,96 @@
   }
 
   // ══════════════════════════════════════════════════
-  // FORM — mailto con datos del formulario
+  // WEB3FORMS — envío real de formularios sin backend
+  // ══════════════════════════════════════════════════
+  var WEB3FORMS_ACCESS_KEY = '67536def-b4b9-44eb-a141-8814c276314a';
+
+  function submitToWeb3Forms(payload) {
+    payload.access_key = WEB3FORMS_ACCESS_KEY;
+    return fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) { return res.json(); });
+  }
+
+  // ══════════════════════════════════════════════════
+  // QUOTE CART — renderiza el carro en #contacto y el
+  // contador de productos en el botón "Cotizar ahora"
+  // ══════════════════════════════════════════════════
+  function initQuoteCart() {
+    var list  = document.getElementById('quoteCartList');
+    var empty = document.getElementById('quoteCartEmpty');
+    var clearBtn = document.getElementById('quoteCartClear');
+    var navBadges = document.querySelectorAll('.nav-cta, .footer-contact .btn');
+
+    function render(items) {
+      items = items || Cart.getAll();
+
+      if (list) {
+        list.innerHTML = '';
+        items.forEach(function (item) {
+          var li = document.createElement('li');
+          li.className = 'quote-cart-item';
+
+          var span = document.createElement('span');
+          span.className = 'quote-cart-name';
+          span.textContent = item.name;
+
+          var qtyInput = document.createElement('input');
+          qtyInput.type = 'number';
+          qtyInput.min = '1';
+          qtyInput.className = 'quote-cart-qty';
+          qtyInput.value = item.qty || 1;
+          qtyInput.setAttribute('aria-label', 'Cantidad de ' + item.name);
+          qtyInput.addEventListener('change', function () {
+            Cart.setQty(item.name, qtyInput.value);
+          });
+
+          var removeBtn = document.createElement('button');
+          removeBtn.type = 'button';
+          removeBtn.className = 'quote-cart-remove';
+          removeBtn.setAttribute('aria-label', 'Quitar ' + item.name);
+          removeBtn.innerHTML = '&times;';
+          removeBtn.addEventListener('click', function () { Cart.remove(item.name); });
+
+          li.appendChild(span);
+          li.appendChild(qtyInput);
+          li.appendChild(removeBtn);
+          list.appendChild(li);
+        });
+      }
+
+      if (empty) empty.hidden = items.length > 0;
+      if (list) list.hidden = items.length === 0;
+      if (clearBtn) clearBtn.hidden = items.length === 0;
+
+      // Badge con contador en los CTA "Cotizar"
+      navBadges.forEach(function (btn) {
+        var badge = btn.querySelector('.cart-badge');
+        if (items.length > 0) {
+          if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'cart-badge';
+            btn.appendChild(badge);
+          }
+          badge.textContent = items.length;
+        } else if (badge) {
+          badge.remove();
+        }
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () { Cart.clear(); });
+    }
+
+    Cart.onChange(render);
+    render();
+  }
+
+  // ══════════════════════════════════════════════════
+  // FORM — envío real vía Web3Forms
   // ══════════════════════════════════════════════════
   function initForm() {
     var form = document.getElementById('quoteForm');
@@ -552,9 +695,10 @@
       var telefono = form.querySelector('#telefono').value.trim();
       var categoria= form.querySelector('#categoria').value;
       var mensaje  = form.querySelector('#mensaje').value.trim();
+      var cartItems = Cart.getAll();
 
       // Validación básica
-      if (!nombre || !empresa || !email || !mensaje) {
+      if (!nombre || !empresa || !email) {
         showFormError(form, 'Por favor complete los campos obligatorios (*).');
         return;
       }
@@ -562,29 +706,140 @@
         showFormError(form, 'Por favor ingrese un correo electrónico válido.');
         return;
       }
+      if (!cartItems.length && !mensaje) {
+        showFormError(form, 'Agregue al menos un producto desde el catálogo o describa su requerimiento en comentarios.');
+        return;
+      }
 
-      // Construir correo
-      var subject = encodeURIComponent('Solicitud de Cotización — ' + empresa);
-      var body = encodeURIComponent(
-        'Estimado equipo SOCOIM,\n\n' +
-        'Les contacto para solicitar cotización.\n\n' +
-        '─────────────────────────────\n' +
-        'Nombre: ' + nombre + '\n' +
-        'Empresa: ' + empresa + '\n' +
-        'Correo: ' + email + '\n' +
-        (telefono ? 'Teléfono: ' + telefono + '\n' : '') +
-        (categoria ? 'Categoría: ' + formatCategoria(categoria) + '\n' : '') +
-        '─────────────────────────────\n\n' +
-        'Detalle del requerimiento:\n' + mensaje + '\n\n' +
-        'Quedo atento a su respuesta.\n\n' +
-        'Saludos,\n' + nombre
-      );
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalBtnText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+      }
 
-      window.location.href = 'mailto:ventas@socoim.cl?subject=' + subject + '&body=' + body;
+      var productosTexto = cartItems.length
+        ? cartItems.map(function (i) { return '- ' + (i.qty || 1) + 'x ' + i.name; }).join('\n')
+        : 'No especificados (ver comentarios)';
 
-      // Mostrar estado de éxito en formulario
-      showFormSuccess(form);
+      submitToWeb3Forms({
+        subject: 'Solicitud de Cotización — ' + empresa,
+        from_name: nombre,
+        nombre: nombre,
+        empresa: empresa,
+        email: email,
+        telefono: telefono || 'No indicado',
+        categoria: categoria ? formatCategoria(categoria) : 'No especificada',
+        productos: productosTexto,
+        comentarios: mensaje || 'Sin comentarios adicionales',
+        message: productosTexto + (mensaje ? '\n\nComentarios adicionales:\n' + mensaje : ''),
+        replyto: email
+      }).then(function (data) {
+        if (data.success) {
+          Cart.clear();
+          showFormSuccess(form);
+        } else {
+          throw new Error(data.message || 'Error desconocido');
+        }
+      }).catch(function () {
+        showFormError(form, 'No se pudo enviar la solicitud. Intente nuevamente o escríbanos directamente a ventas@socoim.cl.');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
     });
+  }
+
+  // ══════════════════════════════════════════════════
+  // QUOTE BUTTONS — botones "Cotizar" de tarjetas y modal
+  // Agregan el producto al carro de cotización (Cart).
+  // El cliente puede seguir agregando más mientras navega
+  // el catálogo; el envío real ocurre en el formulario de
+  // #contacto, donde ve el carro completo antes de enviar.
+  // ══════════════════════════════════════════════════
+  function initQuoteButtons() {
+    var cardButtons = document.querySelectorAll('.product-card .product-cta');
+    var modalBtn = document.getElementById('productModalCta');
+    if (!cardButtons.length && !modalBtn) return;
+
+    // Muestra un selector de cantidad justo al lado del botón clickeado.
+    // Al confirmar (✓ o Enter), agrega al carro con esa cantidad.
+    // Al cancelar (× o Escape), no hace nada.
+    function showQtyPicker(btn, onConfirm) {
+      if (btn.dataset.pickerOpen) return; // ya hay un picker abierto para este botón
+      btn.dataset.pickerOpen = '1';
+      btn.style.display = 'none';
+
+      var picker = document.createElement('span');
+      picker.className = 'qty-picker';
+      picker.innerHTML =
+        '<label class="qty-picker-label">Cant.</label>' +
+        '<input type="number" class="qty-picker-input" min="1" value="1" />' +
+        '<button type="button" class="qty-picker-confirm" aria-label="Confirmar">✓</button>' +
+        '<button type="button" class="qty-picker-cancel" aria-label="Cancelar">✕</button>';
+      btn.insertAdjacentElement('afterend', picker);
+
+      var input = picker.querySelector('.qty-picker-input');
+      var confirmBtn = picker.querySelector('.qty-picker-confirm');
+      var cancelBtn = picker.querySelector('.qty-picker-cancel');
+
+      function close() {
+        picker.remove();
+        btn.style.display = '';
+        delete btn.dataset.pickerOpen;
+      }
+
+      function confirm() {
+        var qty = input.value;
+        close();
+        onConfirm(qty);
+      }
+
+      confirmBtn.addEventListener('click', function (e) { e.stopPropagation(); confirm(); });
+      cancelBtn.addEventListener('click', function (e) { e.stopPropagation(); close(); });
+      input.addEventListener('click', function (e) { e.stopPropagation(); });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); confirm(); }
+        if (e.key === 'Escape') { e.preventDefault(); close(); }
+      });
+
+      input.focus();
+      input.select();
+    }
+
+    function addToCart(btn, productName, categorySlug, qty) {
+      var added = Cart.add(productName, categorySlug, qty);
+      var original = btn.textContent;
+      btn.textContent = added ? '✓ Agregado' : 'Cantidad actualizada';
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+
+    cardButtons.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var card = btn.closest('.product-card');
+        if (!card) return;
+        var title = card.querySelector('h3');
+        var productName = title ? title.textContent : 'Producto';
+        var categorySlug = card.dataset.category;
+        showQtyPicker(btn, function (qty) {
+          addToCart(btn, productName, categorySlug, qty);
+        });
+      });
+    });
+
+    if (modalBtn) {
+      modalBtn.addEventListener('click', function () {
+        var modal = document.getElementById('productModal');
+        var title = document.getElementById('productModalTitle');
+        var productName = title ? title.textContent : 'Producto';
+        var categorySlug = modal ? modal.dataset.category : '';
+        showQtyPicker(modalBtn, function (qty) {
+          addToCart(modalBtn, productName, categorySlug, qty);
+        });
+      });
+    }
   }
 
   function isValidEmail(email) {
@@ -636,7 +891,7 @@
         '</svg>' +
       '</div>' +
       '<h4>¡Solicitud enviada!</h4>' +
-      '<p>Su cliente de correo se abrirá con el mensaje listo para enviar a ventas.</p>';
+      '<p>Recibimos su solicitud. El equipo de ventas de SOCOIM la revisará y se pondrá en contacto a la brevedad.</p>';
     div.style.cssText = 'text-align:center;padding:2rem 1rem;';
 
     // Resetear form visualmente

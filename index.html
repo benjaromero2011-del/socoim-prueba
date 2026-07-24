@@ -16,7 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?v=20260516" defer></script>
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="styles.css?v=20260722h" />
+  <link rel="stylesheet" href="styles.css?v=20260722k" />
 </head>
 <body>
 
@@ -41,7 +41,7 @@
         <li><a href="#productos" data-products-trigger>Productos</a></li>
         <li><a href="#proyectos">Clientes</a></li>
         <li><a href="#contacto">Contacto</a></li>
-        <li><a href="mailto:ventas@socoim.cl" class="nav-cta">Cotizar ahora</a></li>
+        <li><a href="#contacto" class="nav-cta">Cotizar ahora</a></li>
       </ul>
       <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú">
         <span></span><span></span><span></span>
@@ -75,7 +75,7 @@
         con importación directa y asesoría especializada, desde pequeñas obras hasta grandes proyectos.
       </p>
       <div class="hero-ctas reveal">
-        <a href="mailto:ventas@socoim.cl?subject=Solicitud%20de%20Cotización&body=Hola%20SOCOIM,%20quisiera%20cotizar%20los%20siguientes%20productos:" class="btn btn-primary">
+        <a href="#contacto" class="btn btn-primary">
           Solicitar Cotización
         </a>
         <a href="#productos" class="btn btn-outline" data-products-trigger>Ver Catálogo</a>
@@ -132,7 +132,7 @@
             SOCOIM SpA nace el año <strong>2020</strong> para atender los requerimientos de la construcción,
             la agricultura y la minería de forma especializada.
           </p>
-          <a href="mailto:ventas@socoim.cl" class="btn btn-accent">Contactar a ventas</a>
+          <a href="#contacto" class="btn btn-accent">Contactar a ventas</a>
         </div>
 
         <div class="about-cards">
@@ -258,7 +258,7 @@
 
         <!-- Catálogo: resultados -->
         <div class="catalog-main">
-          <p class="product-search-empty" id="productSearchEmpty" hidden>No encontramos productos que coincidan con su búsqueda. Intente con otro término o <a href="mailto:ventas@socoim.cl?subject=Consulta%20de%20Productos">consúltenos directamente</a>.</p>
+          <p class="product-search-empty" id="productSearchEmpty" hidden>No encontramos productos que coincidan con su búsqueda. Intente con otro término o <a href="#contacto">consúltenos directamente</a>.</p>
 
           <!-- Grid de productos -->
           <div class="products-grid" id="productsGrid">
@@ -271,7 +271,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Electrobomba Pedrollo PKM 60 1&quot;X1&quot;, 0,5HP, 220V</h3>
             <p>Bomba periférica de 0.5 HP para agua limpia. Ideal para riego y sistemas de bajo caudal.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Electrobomba%20Pedrollo%20PKM%2060%201%22X1%22%2C%200%2C5HP%2C%20220V" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -283,7 +283,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Electrobomba Pedrollo CPM 158 1HP 220V</h3>
             <p>Bomba centrífuga monofásica de 1 HP para agua limpia. Sistema de presión confiable.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Electrobomba%20Pedrollo%20CPM%20158%201HP%20220V" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -295,7 +295,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Electroboma para Pozo Pedrollo 4SR 2M-7+ PD 0,5HP 220V</h3>
             <p>Bomba sumergible para pozos de 0.5 HP. Extracción eficiente de agua subterránea.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Electroboma%20para%20Pozo%20Pedrollo%204SR%202M-7%2B%20PD%200%2C5HP%20220V" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -307,7 +307,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Electrobomba Sumergible Pedrollo VX  8/35 0,85HP 220V</h3>
             <p>Bomba sumergible de 0.85 HP para pozos y cisternas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Electrobomba%20Sumergible%20Pedrollo%20VX%20%208/35%200%2C85HP%20220V" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -319,7 +319,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Electrobomba Sumergible Pedrollo VXC  M15/50 1.5HP 220V</h3>
             <p>Bomba sumergible de 1.5 HP para pozos y cisternas. Mayor caudal para riego y suministro de agua.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Electrobomba%20Sumergible%20Pedrollo%20VXC%20%20M15/50%201.5HP%20220V" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -331,7 +331,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Bomba Centrifuga Calpeda NM 40-16B | 4 HP | 380V</h3>
             <p>Bomba centrífuga de 4 HP trifásica. Alta capacidad para aplicaciones exigentes.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Bomba%20Centrifuga%20Calpeda%20NM%2040-16B%20%7C%204%20HP%20%7C%20380V" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -343,7 +343,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Bomba Centriguga REGGIO SB2 1250T | 12.5 HP | 380V</h3>
             <p>Bomba centrífuga de 12.5 HP trifásica. Bombeo masivo para minería y construcción.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Bomba%20Centriguga%20REGGIO%20SB2%201250T%20%7C%2012.5%20HP%20%7C%20380V" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -355,7 +355,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Bomba Multietapas LEO 2AC  M150H INNOVATION 3.0</h3>
             <p>Bomba multietapas para presión constante. Sistemas centralizados de agua.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Bomba%20Multietapas%20LEO%202AC%20%20M150H%20INNOVATION%203.0" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -367,7 +367,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Bomba de Piscina LEO XKP  800 1HP/220V</h3>
             <p>Bomba para circulación y filtración de piscinas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Bomba%20de%20Piscina%20LEO%20XKP%20%20800%201HP/220V" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -379,7 +379,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Bomba de Drenaje LEO XSP 20-9/1,1L - 1,5HP</h3>
             <p>Bomba sumergible para aguas con sólidos en suspensión.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Bomba%20de%20Drenaje%20LEO%20XSP%2020-9/1%2C1L%20-%201%2C5HP" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -391,7 +391,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Bomba Centrifuga Normalizada REGGIO SN  32-200C | 5.5 HP | 380V</h3>
             <p>Bomba centrífuga de 5.5 HP. Cumple normas internacionales ISO.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Bomba%20Centrifuga%20Normalizada%20REGGIO%20SN%20%2032-200C%20%7C%205.5%20HP%20%7C%20380V" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -403,7 +403,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Electrobomba Centrifuga PENTAX CSB 150/2</h3>
             <p>Bomba centrífuga compacta para presión y riego.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Electrobomba%20Centrifuga%20PENTAX%20CSB%20150/2" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -415,7 +415,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Bomba Vertical Multietapas en Linea PENTAX Serie Ultra SL</h3>
             <p>Bomba tipo turbina para pozos profundos. Grandes alturas de elevación.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Bomba%20Vertical%20Multietapas%20en%20Linea%20PENTAX%20Serie%20Ultra%20SL" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -427,7 +427,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Motor  Sumergible 4&quot; de 0.75 HP 220V + Cable 1.3 MTS</h3>
             <p>Motor sumergible Franklin de 3/4 HP con cable incluido. Repuesto para bombas de pozo profundo.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Motor%20%20Sumergible%204%22%20de%200.75%20HP%20220V%20%2B%20Cable%201.3%20MTS" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -439,7 +439,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Motor Superficie  0.5 HP 220V B3 de 2 Polos</h3>
             <p>Motor eléctrico CIMA de 0.5 HP, 2 polos. Repuesto para bombas de superficie.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Motor%20Superficie%20%200.5%20HP%20220V%20B3%20de%202%20Polos" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -451,7 +451,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Controlador Electrico Easy Pump</h3>
             <p>Controlador de presión Besflow para arranque y detención automática de bombas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Controlador%20Electrico%20Easy%20Pump" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -463,7 +463,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Controlador Electrico PressControl</h3>
             <p>Controlador de presión Reggio. Protege la bomba y automatiza el encendido según demanda.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Controlador%20Electrico%20PressControl" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -475,7 +475,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Controlador Electrico Autpump</h3>
             <p>Controlador de arranque automático Besflow para sistemas de bombeo de agua.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Controlador%20Electrico%20Autpump" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -487,7 +487,7 @@
             <span class="product-cat">Bombas de Agua</span>
             <h3>Estanque 24 LT. Esferico  AQUASYSTEM</h3>
             <p>Estanque hidroneumático esférico de 24 litros. Mantiene presión estable en el sistema de bombeo.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Estanque%2024%20LT.%20Esferico%20%20AQUASYSTEM" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -499,7 +499,7 @@
             <span class="product-cat">Válvulas</span>
             <h3>Valvula Compuerta Cimberio BR. Laton PN16 BSP</h3>
             <p>Válvula compuerta de latón. Control de flujo en sistemas de tuberías.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Valvula%20Compuerta%20Cimberio%20BR.%20Laton%20PN16%20BSP" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -511,7 +511,7 @@
             <span class="product-cat">Válvulas</span>
             <h3>Valvula Compuerta SBM-PTV SS316/SS316 #200 PSI NPT</h3>
             <p>Válvula compuerta de acero inoxidable. Para fluidos limpios.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Valvula%20Compuerta%20SBM-PTV%20SS316/SS316%20%23200%20PSI%20NPT" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -523,7 +523,7 @@
             <span class="product-cat">Válvulas</span>
             <h3>Valvula Bola SBM-PTV 2PCS SS316/RPTFE 2.000 PSI</h3>
             <p>Válvula de bola de tres piezas acero inoxidable. Cierre hermético.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Valvula%20Bola%20SBM-PTV%202PCS%20SS316/RPTFE%202.000%20PSI" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -535,7 +535,7 @@
             <span class="product-cat">Válvulas</span>
             <h3>Valvula Bola SBM 2PCS SS316/RPTFE 1.000 PSI</h3>
             <p>Válvula de bola de acero inoxidable para presiones medias.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Valvula%20Bola%20SBM%202PCS%20SS316/RPTFE%201.000%20PSI" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -547,7 +547,7 @@
             <span class="product-cat">Válvulas</span>
             <h3>Valvula Bola DIERSTE 3PC ALLOY20/RPTFE 1.000 PSI</h3>
             <p>Válvula de bola ALLOY20. Resistencia extrema a corrosión.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Valvula%20Bola%20DIERSTE%203PC%20ALLOY20/RPTFE%201.000%20PSI" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -559,7 +559,7 @@
             <span class="product-cat">Válvulas</span>
             <h3>Valvula Bola Flange Ansi  150 DIERSTE DUPLEX/RPTFE</h3>
             <p>Válvula industrial de control de flujo.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Valvula%20Bola%20Flange%20Ansi%20%20150%20DIERSTE%20DUPLEX/RPTFE" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -571,7 +571,7 @@
             <span class="product-cat">Válvulas</span>
             <h3>Valvula Compuerta DIERSTE A105/TRIM 5 #1500 SW</h3>
             <p>Válvula compuerta forjada para alta presión.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Valvula%20Compuerta%20DIERSTE%20A105/TRIM%205%20%231500%20SW" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -583,7 +583,7 @@
             <span class="product-cat">Válvulas</span>
             <h3>Valvula Mariposa LUG DIERSTE WCB/SS316/PTFE #228 PSI</h3>
             <p>Válvula mariposa tipo lug. Control rápido de flujo.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Valvula%20Mariposa%20LUG%20DIERSTE%20WCB/SS316/PTFE%20%23228%20PSI" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -595,7 +595,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Manguera PVC Succion y Descarga de Liquidos</h3>
             <p>Manguera PVC para succión y descarga de líquidos en general. Uso estándar en sistemas de bombeo.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Manguera%20PVC%20Succion%20y%20Descarga%20de%20Liquidos" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -607,7 +607,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Manguera PVC Succion y Descarga de Liquidos Agricola</h3>
             <p>Manguera PVC reforzada para succión y descarga en riego y aplicaciones agrícolas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Manguera%20PVC%20Succion%20y%20Descarga%20de%20Liquidos%20Agricola" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -619,7 +619,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Manguera PVC Succion y Decarga de Vino</h3>
             <p>Manguera para líquidos alimenticios.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Manguera%20PVC%20Succion%20y%20Decarga%20de%20Vino" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -631,7 +631,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Manguera PVC Succion y Descarga de Liquidos Alimenticios</h3>
             <p>Manguera PVC de grado alimenticio para succión y descarga de líquidos. Cumple normas de potabilidad.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Manguera%20PVC%20Succion%20y%20Descarga%20de%20Liquidos%20Alimenticios" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -643,7 +643,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Manguera PVC -  Plana Tipo Bombero alta presion</h3>
             <p>Manguera resistente para sistemas de presión.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Manguera%20PVC%20-%20%20Plana%20Tipo%20Bombero%20alta%20presion" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -655,7 +655,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Manguera PU -- para paso de aire, virutas, etc.</h3>
             <p>Manguera de poliuretano flexible para aire comprimido, virutas y polvo en sistemas neumáticos.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Manguera%20PU%20--%20para%20paso%20de%20aire%2C%20virutas%2C%20etc." class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -667,7 +667,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Manguera PU Antiestatica -- para paso de aire, virutas, etc</h3>
             <p>Manguera de poliuretano antiestática. Evita acumulación de cargas al transportar aire y virutas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Manguera%20PU%20Antiestatica%20--%20para%20paso%20de%20aire%2C%20virutas%2C%20etc" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -679,7 +679,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Mangurea Corrugada - Aplicaciones de baja y alta presion</h3>
             <p>Manguera corrugada flexible, apta para aplicaciones de baja y alta presión industrial.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Mangurea%20Corrugada%20-%20Aplicaciones%20de%20baja%20y%20alta%20presion" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -691,7 +691,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Acoples Camlok</h3>
             <p>Acoples rápidos sin herramientas. Conexión y desconexión instantánea.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Acoples%20Camlok" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -703,7 +703,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Abrazadera Alta Presion</h3>
             <p>Abrazadera metálica para sujeción en alta presión.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Abrazadera%20Alta%20Presion" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -715,7 +715,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Abrazadera Doble Perno</h3>
             <p>Abrazadera reforzada para mangueras de gran diámetro.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Abrazadera%20Doble%20Perno" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -727,7 +727,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Espiga Macho</h3>
             <p>Espiga acopladora para uniones rápidas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Espiga%20Macho" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -739,7 +739,7 @@
             <span class="product-cat">Mangueras</span>
             <h3>Union Strotz</h3>
             <p>Unión tipo Strotz para mangueras. Acople sin herramientas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Union%20Strotz" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -751,7 +751,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Flanges sin cuello (SLIP ON) CLASE 150 LBS</h3>
             <p>Flange slip-on clase 150 LBS. Se desliza sobre el tubo para soldar, apto para presiones moderadas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Flanges%20sin%20cuello%20%28SLIP%20ON%29%20CLASE%20150%20LBS" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -763,7 +763,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Flanges con cuello (WENDING NECK) CLASE 150 LBS</h3>
             <p>Flange cuello soldable (welding neck) clase 150 LBS. Mayor resistencia estructural para altas presiones.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Flanges%20con%20cuello%20%28WENDING%20NECK%29%20CLASE%20150%20LBS" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -775,7 +775,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Flanges Ciego (BLIND) CLASE 150 LBS</h3>
             <p>Flange ciego clase 150 LBS. Cierra el extremo de una tubería o válvula para inspección o futura ampliación.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Flanges%20Ciego%20%28BLIND%29%20CLASE%20150%20LBS" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -787,7 +787,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Flanges Rosacado con hilo NPT (THREADED) CLASE 150 LBS</h3>
             <p>Flange roscado NPT clase 150 LBS. Conexión sin soldadura para mantenimiento rápido.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Flanges%20Rosacado%20con%20hilo%20NPT%20%28THREADED%29%20CLASE%20150%20LBS" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -799,7 +799,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Codos</h3>
             <p>Codos de acero al carbono en 45° y 90°. Cambian la dirección del flujo en instalaciones de tuberías.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Codos" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -811,7 +811,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Uniones Amercianas</h3>
             <p>Uniones americanas para tuberías. Conexión rápida desmontable.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Uniones%20Amercianas" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -823,7 +823,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Tee</h3>
             <p>Conexiones tipo Tee de acero. Derivan el flujo en tres direcciones dentro de la red de tuberías.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Tee" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -835,7 +835,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Coplas</h3>
             <p>Coplas de unión roscadas. Empalman tramos de tuberías del mismo diámetro.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Coplas" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -847,7 +847,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Buschings Reductores</h3>
             <p>Reducciones bushing roscadas. Adaptan un diámetro de tubería mayor a uno menor.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Buschings%20Reductores" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -859,7 +859,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Niples</h3>
             <p>Niples tubulares de acero. Conectores para instalaciones.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Niples" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -871,7 +871,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Reducciones Concentricas</h3>
             <p>Reducciones concéntricas soldables. Transición gradual entre dos diámetros de tubería.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Reducciones%20Concentricas" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -883,7 +883,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Tapones Macho</h3>
             <p>Tapones roscados. Cierre de extremos de tuberías.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Tapones%20Macho" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -895,7 +895,7 @@
             <span class="product-cat">Flanges y Fittings</span>
             <h3>Coplas Reductoras</h3>
             <p>Coplas reductoras roscadas. Unen tramos de tuberías de distinto diámetro.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Coplas%20Reductoras" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -907,7 +907,7 @@
             <span class="product-cat">Tuberías</span>
             <h3>Tuberia PVC Gris Schudele 80  (GRIS)</h3>
             <p>Tubería PVC Schedule 80 gris. Resistente para agua a presión.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Tuberia%20PVC%20Gris%20Schudele%2080%20%20%28GRIS%29" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -919,7 +919,7 @@
             <span class="product-cat">Tuberías</span>
             <h3>Accesorios Fitings PVC SCH 80 (GRIS)</h3>
             <p>Codos, tees y uniones PVC SCH 80 para tuberías.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Accesorios%20Fitings%20PVC%20SCH%2080%20%28GRIS%29" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -931,7 +931,7 @@
             <span class="product-cat">Tuberías</span>
             <h3>Conduit – Schedule 80 Naranja 6M Cementar</h3>
             <p>Conduit PVC naranja Schedule 80 de 6 metros, apto para cementar. Protección de cableado eléctrico enterrado.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Conduit%20%E2%80%93%20Schedule%2080%20Naranja%206M%20Cementar" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -943,7 +943,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Malla Faena</h3>
             <p>Malla de seguridad naranja. Delimitación de zonas de obra.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Malla%20Faena" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -955,7 +955,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Lampara de Faena</h3>
             <p>Lámpara de trabajo portátil para iluminación de faenas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Lampara%20de%20Faena" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -967,7 +967,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Malla Elastica Cubre Pick Up</h3>
             <p>Malla elástica de carga para pick up. Asegura materiales sueltos durante el transporte.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Malla%20Elastica%20Cubre%20Pick%20Up" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -979,7 +979,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Barrera Expandible - Amarilla Negra</h3>
             <p>Barrera expandible amarilla y negra. Delimitación rápida y portátil de áreas de trabajo.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Barrera%20Expandible%20-%20Amarilla%20Negra" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -991,7 +991,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Barrera Expandible - Roja Blanca</h3>
             <p>Barrera expandible roja y blanca. Señalización visual de alto contraste para zonas restringidas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Barrera%20Expandible%20-%20Roja%20Blanca" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1003,7 +1003,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Barrera New Jersey</h3>
             <p>Barrera New Jersey. Contención vehicular y delimitación vial permanente.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Barrera%20New%20Jersey" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1015,7 +1015,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Cadena Plastica Roja Blanca</h3>
             <p>Cadena plástica roja y blanca. Delimitación liviana de perímetros y zonas de tránsito.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cadena%20Plastica%20Roja%20Blanca" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1027,7 +1027,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Cadena Plastica 8 mm x Metro</h3>
             <p>Cadena plástica de 8 mm, venta por metro. Cerco liviano para señalización temporal.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cadena%20Plastica%208%20mm%20x%20Metro" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1039,7 +1039,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Cadena Plastica eslabon abierto</h3>
             <p>Cadena plástica de eslabón abierto. Fácil instalación y corte a medida.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cadena%20Plastica%20eslabon%20abierto" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1051,7 +1051,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Gancho Plastico S</h3>
             <p>Gancho plástico tipo S. Conecta tramos de cadena y cinta de señalización.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Gancho%20Plastico%20S" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1063,7 +1063,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Cono Naranjo 1 Metro</h3>
             <p>Cono reflectante de tránsito de 1m. Señalización de zonas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cono%20Naranjo%201%20Metro" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1075,7 +1075,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Cono Naranjo 28&quot; 2 Cintas</h3>
             <p>Cono de tránsito naranjo de 28&quot; con 2 cintas reflectantes. Alta visibilidad diurna y nocturna.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cono%20Naranjo%2028%22%202%20Cintas" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1087,7 +1087,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Cono Verde 28&quot; 2 Cintas</h3>
             <p>Cono de tránsito verde de 28&quot; con 2 cintas reflectantes. Señalización diferenciada de zonas de trabajo.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cono%20Verde%2028%22%202%20Cintas" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1099,7 +1099,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Cono Naranjo 36&quot; 2 Cintas reflectantes</h3>
             <p>Cono de tránsito naranjo de 36&quot; con cintas reflectantes. Mayor visibilidad para vías de alto tránsito.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cono%20Naranjo%2036%22%202%20Cintas%20reflectantes" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1111,7 +1111,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Hito Delineador Abatible Azul</h3>
             <p>Hito delineador abatible azul. Resiste impactos y vuelve a su posición vertical.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Hito%20Delineador%20Abatible%20Azul" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1123,7 +1123,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Hito Delineador Fijo Naranjo</h3>
             <p>Hito delineador fijo naranjo. Señalización permanente de carriles y accesos.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Hito%20Delineador%20Fijo%20Naranjo" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1135,7 +1135,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Lamapara Solar Bidireccional Faena</h3>
             <p>Lámpara solar bidireccional con panel. Iluminación autónoma.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Lamapara%20Solar%20Bidireccional%20Faena" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1147,7 +1147,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Lampara Bidireccional Faena Conos</h3>
             <p>Lámpara bidireccional para cono. Señalización nocturna de obras.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Lampara%20Bidireccional%20Faena%20Conos" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1159,7 +1159,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Lampara Faena Solar Bidireccional Conos</h3>
             <p>Lámpara solar bidireccional para montar en conos. Señalización nocturna autónoma sin cableado.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Lampara%20Faena%20Solar%20Bidireccional%20Conos" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1171,7 +1171,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Tambor porta baliza con 2 cintas</h3>
             <p>Tambor portátil con cinta reflectante de seguridad.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Tambor%20porta%20baliza%20con%202%20cintas" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1183,7 +1183,7 @@
             <span class="product-cat">Seguridad Vial</span>
             <h3>Tambor porta baliza</h3>
             <p>Tambor de almacenamiento para cintas y balizas.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Tambor%20porta%20baliza" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1195,7 +1195,7 @@
             <span class="product-cat">Equipamiento Minero</span>
             <h3>Cuñas camion 30 tn</h3>
             <p>Cuñas de seguridad para camión de 30 toneladas. Inmovilizan el vehículo en pendientes y detenciones.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cu%C3%B1as%20camion%2030%20tn" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1207,7 +1207,7 @@
             <span class="product-cat">Equipamiento Minero</span>
             <h3>Cuñas camion 45 tn</h3>
             <p>Cuñas de seguridad para camión de 45 toneladas. Mayor sujeción para vehículos de carga pesada.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cu%C3%B1as%20camion%2045%20tn" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1219,7 +1219,7 @@
             <span class="product-cat">Equipamiento Minero</span>
             <h3>Cuña Camioneta 5 tn (par)</h3>
             <p>Par de cuñas de seguridad para camionetas de 5 toneladas. Evitan desplazamientos accidentales.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cu%C3%B1a%20Camioneta%205%20tn%20%28par%29" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1231,7 +1231,7 @@
             <span class="product-cat">Equipamiento Minero</span>
             <h3>Cuña PU Camion 80 Tn</h3>
             <p>Cuña de poliuretano para camión minero de 80 toneladas. Alta resistencia a impacto y desgaste.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cu%C3%B1a%20PU%20Camion%2080%20Tn" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1243,7 +1243,7 @@
             <span class="product-cat">Equipamiento Minero</span>
             <h3>Cuña PU Camion 250 Tn</h3>
             <p>Cuña de poliuretano para camión minero de 250 toneladas. Diseñada para equipos de extracción de gran tonelaje.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cu%C3%B1a%20PU%20Camion%20250%20Tn" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1255,7 +1255,7 @@
             <span class="product-cat">Equipamiento Minero</span>
             <h3>Cuña PU Camion 120 Tn</h3>
             <p>Cuña de poliuretano para camión minero de 120 toneladas. Seguridad reforzada en faenas mineras.</p>
-            <a href="mailto:ventas@socoim.cl?subject=Cotizaci%C3%B3n%20-%20Cu%C3%B1a%20PU%20Camion%20120%20Tn" class="product-cta">Cotizar →</a>
+            <button type="button" class="product-cta">+ Cotizar</button>
           </div>
         </article>
 
@@ -1264,7 +1264,7 @@
           <div class="products-cta-wrap reveal">
             <p>¿No encuentra lo que busca? Realizamos importaciones directas según el requerimiento de cada cliente.</p>
             <div class="products-cta-actions">
-              <a href="mailto:ventas@socoim.cl?subject=Consulta%20de%20Productos&body=Hola%20SOCOIM,%20necesito%20información%20sobre:" class="btn btn-primary">
+              <a href="#contacto" class="btn btn-primary">
                 Consultar disponibilidad
               </a>
               <span class="btn btn-outline btn-soon" aria-disabled="true" title="Catálogo en preparación">
@@ -1385,6 +1385,17 @@
             Para urgencias, escríbanos directamente.
           </p>
 
+          <div class="quote-cart reveal" id="quoteCart">
+            <div class="quote-cart-header">
+              <h3>Productos a cotizar</h3>
+              <button type="button" id="quoteCartClear" class="quote-cart-clear" hidden>Vaciar</button>
+            </div>
+            <ul class="quote-cart-list" id="quoteCartList"></ul>
+            <p class="quote-cart-empty" id="quoteCartEmpty">
+              Aún no ha agregado productos. <a href="#productos" data-products-trigger>Ver catálogo</a> y haga clic en "Cotizar" en los que necesite.
+            </p>
+          </div>
+
           <div class="contact-details reveal">
             <div class="contact-item">
               <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -1463,10 +1474,9 @@
           </div>
 
           <div class="form-group">
-            <label for="mensaje">Detalle de la solicitud *</label>
-            <textarea id="mensaje" name="mensaje" rows="5"
-              placeholder="Describa los productos que necesita, cantidades aproximadas y plazo de entrega requerido..."
-              required></textarea>
+            <label for="mensaje">Comentarios adicionales</label>
+            <textarea id="mensaje" name="mensaje" rows="4"
+              placeholder="Cantidades aproximadas, plazo de entrega u otro detalle de su requerimiento..."></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary full-width">
@@ -1511,7 +1521,7 @@
           <h4>Ventas</h4>
           <a href="mailto:ventas@socoim.cl" class="footer-email">ventas@socoim.cl</a>
           <a href="tel:+56978558253" class="footer-email">+56 9 7855 8253</a>
-          <a href="mailto:ventas@socoim.cl?subject=Solicitud%20de%20Cotización" class="btn btn-outline small">Cotizar</a>
+          <a href="#contacto" class="btn btn-outline small">Cotizar</a>
         </div>
       </div>
 
@@ -1554,12 +1564,12 @@
         <span id="productModalCat" class="product-cat"></span>
         <h3 id="productModalTitle"></h3>
         <p id="productModalDesc"></p>
-        <a id="productModalCta" href="#" class="btn btn-primary">Cotizar este producto</a>
+        <button type="button" id="productModalCta" class="btn btn-primary">+ Agregar a cotización</button>
       </div>
     </div>
   </div>
 
   <!-- Scripts -->
-  <script src="main.js?v=20260723" defer></script>
+  <script src="main.js?v=20260723e" defer></script>
 </body>
 </html>

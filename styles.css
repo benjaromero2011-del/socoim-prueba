@@ -800,15 +800,71 @@ ul { list-style: none; }
   margin-bottom: 1rem;
 }
 .product-cta {
+  font-family: inherit;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--accent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   transition: gap 0.25s;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
 }
 .product-cta:hover { gap: 0.5rem; }
+.product-cta:disabled { opacity: 0.7; cursor: default; }
+
+/* Selector de cantidad inline (aparece al hacer clic en Cotizar) */
+.qty-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.qty-picker-label {
+  font-size: 0.78rem;
+  color: var(--text-3);
+}
+.qty-picker-input {
+  width: 3.2rem;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: var(--bg);
+  color: var(--text-1);
+}
+.qty-picker-confirm,
+.qty-picker-cancel {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.qty-picker-confirm {
+  background: var(--accent);
+  color: #fff;
+}
+.qty-picker-cancel {
+  background: var(--bg-3);
+  color: var(--text-3);
+}
+.qty-picker-cancel:hover { color: var(--accent); }
+
+/* Modal: el picker de cantidad ocupa su propia línea */
+.product-modal-info .qty-picker {
+  margin-top: 0.75rem;
+  display: flex;
+}
 
 .products-cta-wrap {
   text-align: center;
@@ -1263,6 +1319,111 @@ body.products-view-open { overflow: hidden; }
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 2rem;
+}
+
+/* Carro de cotización */
+.quote-cart {
+  border: 1px solid var(--border);
+  border-radius: calc(var(--r) * 1.5);
+  background: var(--bg-3);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.quote-cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.quote-cart-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+}
+.quote-cart-clear {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: underline;
+}
+.quote-cart-clear:hover { color: var(--accent); }
+.quote-cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.quote-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 0.5rem 0.75rem;
+}
+.quote-cart-name {
+  flex: 1;
+  min-width: 0;
+}
+.quote-cart-qty {
+  width: 3.2rem;
+  flex-shrink: 0;
+  padding: 0.2rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  font-family: inherit;
+  font-size: 0.8rem;
+  background: var(--bg-2);
+  color: var(--text-1);
+  text-align: center;
+}
+.quote-cart-remove {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0 0.15rem;
+}
+.quote-cart-remove:hover { color: var(--accent); }
+.quote-cart-empty {
+  font-size: 0.85rem;
+  color: var(--text-3);
+  margin: 0;
+}
+.quote-cart-empty a { color: var(--brand); font-weight: 600; }
+.quote-cart-empty a:hover { color: var(--accent); }
+
+/* Badge de contador en los botones "Cotizar" */
+.nav-cta, .footer-contact .btn {
+  position: relative;
+}
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .contact-details {
